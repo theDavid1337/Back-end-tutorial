@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hasanboy Zafarov">
+    {% include "./links.html" %}
+    <title>
+        {% if request.path == "/add/" %}
+        Add New Post
+        {% else %}
+        Updating {{object.title|upper}} Post
+        {% endif %}
+    </title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header_wrapper">
+                <a href="./index.html" class="site_logo">
+                    <span>My</span>Blog
+                </a>
+                <ul class="nav_menu">
+                    <li class="search_blogs">
+                    <li><a href="./index.html" class="nav_link nav_link_active">Blog</a></li>
+                    <a href="#">
+                        <i class="bi bi-search" type="submit"></i>
+                    </a>
+                    </li>
+                </ul>
+                <div class="wrapper_icon">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="post_form">
+            <div class="container">
+                <div class="post_form_wrapper">
+                    <form id="post_form" action="#" enctype="multipart/form-data" method="post">
+
+                        <div class="change_post_wrapper">
+                            <p class="post_form_p">{% if request.path == "/add/" %}
+                                Add New Post
+                                {% else %}
+                                Updating {{object.title|upper}} Post
+                                {% endif %}</p>
+                            {% csrf_token %}
+                            {{form}}
+                            <button class="post_form_btn" type="submit">{% if request.path == "/add/" %}
+                                Add new
+                                {% else %}
+                                Update
+                                {% endif %} Post</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    {% include "./scripts.html" %}
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hasanboy Zafarov">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    {% include "./links.html" %}
+    <title>{{ object.title|upper }}</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header_wrapper">
+                <a href="/" class="site_logo">
+                    <span>My</span>Blog
+                </a>
+                <ul class="nav_menu">
+                    <li><a href="/ class=" nav_link nav_link_active">Blog</a></li>
+                </ul>
+                <div class="wrapper_icon">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section_blog">
+            <div class="container">
+                <div class="blog_detail_wrapper">
+                    <div class="blog_detail_left">
+                        <div class="categories_wrapper">
+                            <p class="blog_detail_left_header">Recent Blogs</p>
+                            {% for post in object_list %}
+                            <div class="recent_blog">
+                                <div class="recent_blog_left" style="background-image: url('{{ post.image.url }}');">
+                                </div>
+                                <div class="recent_blog_right">
+                                    <p>
+                                        <a href="{% url 'main:detail' post.id %}">
+                                            {{post.title}}
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="blog_detail">
+                        <div class="blog_detail_title_wrapper">
+                            <p class="blog_detail_title">{{ object.title }}</p>
+                            <div class="blog_detail_vertical_wrapper">
+                                <i class="bi bi-three-dots-vertical vertical_dots" onclick="edit_or_remove()"></i>
+                                <div class="blog_detail_edit_remove">
+                                    <a href="{% url "main:update" object.id %}" class="blog_detail_edit_icon">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </a>
+                                    <a href="{% url "main:delete" object.id %}" class="blog_detail_remove_icon">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog_detail_content_wrapper">
+                            <div class="blog_detail_content_img">
+                                <img src="{{ object.image.url }}">
+                            </div>
+                            <p class="blog_detail_content_p">
+                                {{ object.body|safe }}
+                            </p>
+                        </div>
+                        <div class="blog_detail_leave_comment">
+                            <form action="#" method="POST">
+                                {% csrf_token %}
+                                <div class="blog_detail_leave_comment_wrapper">
+                                    <div class="blog_detail_leave_comment_left">
+                                        <input type="text" name="name" placeholder="Name..." required>
+                                        <input type="email" name="email" placeholder="Email..." required>
+                                    </div>
+                                    <div class="blog_detail_leave_comment_right">
+                                        <textarea name="body" id="" cols="40" rows="5" placeholder="Message..."
+                                            required></textarea>
+                                    </div>
+                                </div>
+                                <div class="blog_detail_leave_comment_btn_wrapper">
+                                    <button type="submit">Send</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="blog_detail_comments">
+                            {% for comment in comments %}
+                            <!-- START Comment -->
+                            <div class="blog_detail_comment_example">
+                                <p class="comment_username">{{ comment.name }}</p>
+                                <p class="comment_message">{{ comment.body|safe }}</p>
+                            </div>
+                            <!-- END Comment -->
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer_wrapper">
+                <ul class="footer_ul">
+                    <li><a href="./index.html" class="site_logo">
+                            <span>My</span>Blog
+                        </a>
+                    </li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <ul class="footer_ul">
+                    <li><a href="#">Top Viewed Blogs</a></li>
+                    <li><a href="#">How to feed cats?</a></li>
+                    <li><a href="#">Who will cry when you die?</a></li>
+                    <li><a href="#">About Hacking</a></li>
+                </ul>
+                <ul class="footer_ul">
+                    <li><a href="#">Top Tags</a></li>
+                    <li><a href="#">Workout</a></li>
+                    <li><a href="#">Programming</a></li>
+                    <li><a href="#">Books</a></li>
+                </ul>
+                <ul class="footer_ul">
+                    <li><a href="#">Last Blogs</a></li>
+                    <li><a href="#">How to crack wi-fi?</a></li>
+                    <li><a href="#">The most expensive book</a></li>
+                    <li><a href="#">Do you have Girlfriend?</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    {% include "./scripts.html" %}
+</body>
+
+</html>

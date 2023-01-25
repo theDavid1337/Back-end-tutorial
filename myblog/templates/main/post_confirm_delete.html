@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ object.title }}-Deleting Post</title>
+</head>
+
+<body>
+    <form action="{% url "main:home" %}">
+        <h1>Are You Sure To Delete - {{ object.title }}</h1>
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">Delete</button>
+    </form>
+</body>
+
+</html>
