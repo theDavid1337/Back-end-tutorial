@@ -961,7 +961,7 @@
 # # print(arr)
 
 # arr. insert (2, 100); arr # Вставляем 100 в позицию 2
-import random
+# import random
 # arr = [random.randint(1, 50) for x in range(10)]
 
 # print(arr)
@@ -1033,6 +1033,75 @@ import random
 # print(d.get("money"))  # None
 
 
-k = ["monkey", "elephant"]
-v = [12, 5]
-print(dict(zip(k, v)))  # {'monkey': 12, 'elephant': 5}
+# k = ["monkey", "elephant"]
+# v = [12, 5]
+# print(dict(zip(k, v)))  # {'monkey': 12, 'elephant': 5}
+
+
+# import random
+
+# from faker import Faker
+
+# fake = Faker()
+
+# users = {}
+
+# for i in range(10):
+#     name = fake.name()
+#     temp = {
+#         f'{name.split(" ")[0].lower()}': random.randint(18, 30)
+#     }
+#     users.update(temp)
+# print(users)
+
+# {'monica': 22, 'abigail': 30, 'eugene': 19, 'karen': 30, 'dr.': 19, 'nicholas': 23, 'justin': 23, 'anna': 30, 'charles': 22, 'joe': 27}
+
+import random
+
+# Task 1
+
+# arr = [random.randint(10, 35) for x in range(5)]
+# print(arr)
+
+
+# Task 2
+
+# arr = list(random.sample(range(10, 35), 5))
+# print(arr)
+
+
+# Task 3
+
+# arr = [True, 1.2, 2.3, 2, "str", "bool"]
+# bools = []
+# floats = []
+# strs = []
+# ints = []
+# for i in arr:
+#     if type(i) == bool:
+#         bools.append(i)
+#     if type(i) == float:
+#         floats.append(i)
+#     if type(i) == str:
+#         strs.append(i)
+#     if type(i) == int:
+#         ints.append(i)
+# print(f'Boolean - {bools}\nFloat - {floats}\nStr - {strs}\nInts - {ints}')
+
+
+user_input = 42
+
+floor = 0
+entrance = 1
+
+
+if user_input < 3:
+    print(f'Etaj - 1\nPodyezd - {entrance}')
+else:  
+    for i in range(user_input):
+        if i % 3 == 0:
+            floor += 1
+        if floor > 7:
+            floor -= 7
+            entrance += 1
+    print(f'Etaj - {floor}\nPodyezd - {entrance}')
