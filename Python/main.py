@@ -1056,7 +1056,7 @@
 
 # {'monica': 22, 'abigail': 30, 'eugene': 19, 'karen': 30, 'dr.': 19, 'nicholas': 23, 'justin': 23, 'anna': 30, 'charles': 22, 'joe': 27}
 
-import random
+# import random
 
 # Task 1
 
@@ -1089,19 +1089,162 @@ import random
 # print(f'Boolean - {bools}\nFloat - {floats}\nStr - {strs}\nInts - {ints}')
 
 
-user_input = 42
+# user_input = 42
 
-floor = 0
-entrance = 1
+# floor = 0
+# entrance = 1
 
 
-if user_input < 3:
-    print(f'Etaj - 1\nPodyezd - {entrance}')
-else:  
-    for i in range(user_input):
-        if i % 3 == 0:
-            floor += 1
-        if floor > 7:
-            floor -= 7
-            entrance += 1
-    print(f'Etaj - {floor}\nPodyezd - {entrance}')
+# if user_input < 3:
+#     print(f'Etaj - 1\nPodyezd - {entrance}')
+# else:
+#     for i in range(user_input):
+#         if i % 3 == 0:
+#             floor += 1
+#         if floor > 7:
+#             floor -= 7
+#             entrance += 1
+#     print(f'Etaj - {floor}\nPodyezd - {entrance}')
+
+
+# d = {}
+# d["name"] = "John Doe"
+
+# # print(d)
+# # print(d.get("name"))
+# print(d.setdefault("age", 20))
+# # print(d)
+# # print(d.setdefault("name", "mozgi"))
+
+# print(len(d))
+
+# del d["name"]
+
+# print(d["age"])  # 20
+
+
+# for item in d.keys(): # Faqat kalitlarini chiqarib beradi
+#     print(item)
+
+# for item in d.items(): # Elementlarni chiqarib beradi KORTEJ qilib
+#     print(item)
+
+# for item in d.values(): # qiymatlarni chiqarib beradi
+#     print(item)
+
+# pop (<Ключ> [, сЗначение по умолчанию>]) — удаляет элемент с указанным ключом и
+# возвращает его значение. Если ключ отсутствует, то возвращается значение из второго
+# параметра. Если ключ отсутствует, и второй параметр не указан, возбуждается исключе­
+# ние KeyError. Примеры:
+
+# d.pop("age") # pop ( key ) to delete
+# print(d)
+
+
+# ♦ popitemO — удаляет произвольный элемент и возвращает кортеж из ключа и значения.
+# Если словарь пустой, возбуждается исключение KeyError. Примеры:
+# » > d = { "а": 1, "Ь": 2 }
+# » > d.popitemO # Удаляем произвольный элемент
+# Г а ’, 1)
+# » > d.popitemO # Удаляем произвольный элемент
+# СЬ', 2)
+
+# d = {}
+
+# d["name"] = "John Doe"
+# d["age"] = 20
+
+# keys = "abc"
+# values = [1, 2, 3]
+# d = {k: v for (k , v) in zip(keys, values)}
+# print(d) # {'a': 1, 'b': 2, 'c': 3}
+
+
+# task 4
+# import random
+
+# from faker import Faker
+
+# fake = Faker()
+# string = ""
+# users = {}
+# temp = {}
+# counter = 0
+# for i in range(30):
+#     name = fake.name()
+#     users_name = name.split(" ")[0].lower()
+#     for chars in users_name:
+#         if chars.lower() == "a":
+#             string += chars
+#             counter += 1
+#         if counter >= 2:
+#             temp = {f'{users_name}': random.randint(18, 30)}
+#         else:
+#             print("nothing...")
+
+# print(temp)
+# print(users)
+# if users and temp:
+#     users.update(temp)
+#     print(users)
+# else:
+#     print("There is no-one with double a")
+
+
+# import random
+
+# from faker import Faker as fake
+
+# fake = fake()
+# print(dir(fake))
+
+# users = {}
+
+# for i in range(30):
+#     user = fake.name().split()
+#     address = fake.address()
+#     if user[0].lower().count("a") >= 2:
+#         users.update({user[0].lower(): address})
+
+# print(users)
+
+
+# d = "12.28.2012"
+# day = False
+# month = False
+# year = False
+# counter = 0
+# control = True
+# while control:
+#     user_input = input()
+#     counter += 1
+#     if counter == 5:
+#         break
+#     if int(user_input[-1]) > 1970 and int(user_input[-1]) < 2023:
+#         year = True
+#         if int(user_input[-3]) <= 12 and int(user_input[-3]) > 0:
+#             month = True
+#             if int(user_input[-3]) == 2:
+#                 if int(user_input[-2]) <= 28 and int(user_input[-2]) > 0:
+#                     day = True
+#             else:
+#                 if int(user_input[-2]) <= 31 and int(user_input[-2]) > 0:
+#                     day = True
+#     else:
+#         control = True
+
+# if day and month and year:
+#     print(True)
+
+
+# user_time = input()
+
+# user_time = user_time.split(":")
+# user_time[0] = int(user_time[0]) + 9
+# if user_time[0] >= 24:
+#     user_time[0] = user_time[0] - 24
+
+# if user_time[0] < 10:
+#     print(f"0{user_time[0]}:{user_time[-1]}")
+# else:
+#     print(f"{user_time[0]}:{user_time[-1]}")
